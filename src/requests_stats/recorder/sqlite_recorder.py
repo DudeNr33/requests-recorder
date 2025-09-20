@@ -15,6 +15,7 @@ class SQLiteRecorder:
     def record(self, request: PreparedRequest, response: Response) -> None:
         parsed = urlparse(request.url)
         self.cursor.execute(
-            f"INSERT INTO requests VALUES ('{parsed.hostname}', '{parsed.path}', '{parsed.params}', {response.elapsed.total_seconds()}, {response.status_code})"
+            # FIXME: use placeholder instead of string formatting
+            f"INSERT INTO requests VALUES ('{parsed.hostname!r}', '{parsed.path!r}', '{parsed.params!r}', {response.elapsed.total_seconds()}, {response.status_code})"
         )
         self.connection.commit()

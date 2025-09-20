@@ -7,7 +7,7 @@ from requests_stats.adapter import RecordingHTTPAdapter
 from requests_stats.recorder.base import Recorder
 
 
-def test_no_recorder_specified(httpserver: HTTPServer):
+def test_no_recorder_specified(httpserver: HTTPServer) -> None:
     httpserver.expect_request("/test").respond_with_json({}, 200)
     adapter = RecordingHTTPAdapter()
     session = requests.Session()
@@ -16,7 +16,7 @@ def test_no_recorder_specified(httpserver: HTTPServer):
     assert response.status_code == 200
 
 
-def test_custom_recorder(httpserver: HTTPServer):
+def test_custom_recorder(httpserver: HTTPServer) -> None:
     httpserver.expect_request("/test").respond_with_json({}, 200)
     recorder = MagicMock(spec=Recorder)
     adapter = RecordingHTTPAdapter(recorder=recorder)
