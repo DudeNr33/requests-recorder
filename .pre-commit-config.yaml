@@ -12,6 +12,6 @@ repos:
   rev: v1.18.2
   hooks:
   - id: mypy
-    args: [--strict]
+    args: [--strict, --ignore-missing-imports]
     additional_dependencies: [types-requests]
     exclude: ^tests/

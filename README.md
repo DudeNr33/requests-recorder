@@ -1,4 +1,4 @@
-# Requests Recorder
+# requests-stats
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/DudeNr33/requests-recorder/main.svg)](https://results.pre-commit.ci/latest/github/DudeNr33/requests-recorder/main)
 
