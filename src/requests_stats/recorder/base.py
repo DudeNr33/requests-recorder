@@ -19,3 +19,6 @@ class Recorder(Protocol):
 class DoNothingRecorder:
     def record(self, request: PreparedRequest, response: Response) -> None:
         return
+
+    def load(self) -> list[Recording]:
+        return []
