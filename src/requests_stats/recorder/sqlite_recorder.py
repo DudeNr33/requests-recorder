@@ -11,7 +11,7 @@ class SQLiteRecorder:
         self.connection = sqlite3.connect(filepath)
         self.cursor = self.connection.cursor()
         self.cursor.execute(
-            "CREATE TABLE requests(method, url, params, duration, response_status)"
+            "CREATE TABLE IF NOT EXISTS requests(method, url, params, duration, response_status)"
         )
 
     def record(self, request: PreparedRequest, response: Response) -> None:
